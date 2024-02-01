@@ -6,16 +6,12 @@
 /*   By: ybouchma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:00:50 by ybouchma          #+#    #+#             */
-/*   Updated: 2023/11/24 15:03:56 by ybouchma         ###   ########.fr       */
+/*   Updated: 2024/02/01 14:23:40 by ybouchma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE	1337
-# endif
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -24,20 +20,6 @@
 # include <stdint.h>
 # include <stdarg.h>
 
-char	*get_next_line(int fd);
-char	*read_data(int fd, char *buffer);
-int		read_data_helper(char **buffer, char *data);
-char	*get_nline(char *buffer);
-char	*clean(char *buffer);
-void	*ft_calloc(size_t n, size_t size);
-char	*merge(char *s1, char *s2);
-int		ft_printf(const char *arg, ...);
-int		print_char(int c);
-int		print_str(char *str);
-int		print_addr(void *ptr);
-int		print_int(int n);
-int		print_uint(unsigned int n);
-int		print_hex(unsigned int n, char c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -72,18 +54,4 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **lst, t_list *new_node);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new_node);
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 #endif

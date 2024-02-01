@@ -9,32 +9,22 @@ SRC =	ft_toupper.c	ft_substr.c		ft_tolower.c		\
 		ft_striteri.c	ft_strjoin.c	ft_strlcat.c		\
 		ft_strlcpy.c	ft_strlen.c		ft_strmapi.c		\
 		ft_strncmp.c	ft_strnstr.c	ft_strrchr.c		\
-		ft_strtrim.c	ft_printf.c		print_addr.c		\
-		print_char.c	print_hex.c		print_int.c			\
-		print_str.c		print_uint.c	get_next_line.c		\
-		get_next_line_bonus.c		get_next_line_utils.c	
-SRC_B = ft_lstnew.c		ft_lstiter.c	ft_lstadd_front.c	\
-		ft_lstclear.c	ft_lstlast.c	ft_lstdelone.c		\
-		ft_lstmap.c		ft_lstsize.c	ft_lstadd_back.c
+		ft_strtrim.c
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
 OBJ = $(subst .c,.o,$(SRC))
-OBJ_B = $(subst .c,.o,$(SRC_B))
-
 
 all:$(NAME)
 $(NAME):$(OBJ)
 	ar -rcs $(NAME) $(OBJ)
 
-bonus:$(OBJ_B)
-
 $(OBJ_B):$(SRC_B)
 	gcc -c $(SRC_B) $(CFLAGS)
-	ar -rcs $(NAME) $(OBJ_B)
+	ar -rcs $(NAME)
 
 clean:
-	rm -f $(OBJ) $(OBJ_B)
+	rm -f $(OBJ)
 fclean:clean
 	rm -f $(NAME)
 re:fclean all
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
